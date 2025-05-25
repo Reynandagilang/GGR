@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Pesanan - RG Store</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><a href="index.html" style="color: #fff; text-decoration: none;">RG<span class="highlight">store</span></a></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="index.html#games">Games</a></li> 
+                    <li><a href="#">Voucher</a></li>
+                    <li><a href="cek_pesanan.html" class="active">Cek Pesanan</a></li>
+                    <li><a href="#" class="btn-login">Login</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="order-status-section">
+            <div class="container">
+                <h2><i class="fas fa-search-location"></i> Lacak Pesanan Anda</h2>
+                <p class="section-subtitle">Masukkan ID Transaksi Anda untuk melihat status pesanan.</p>
+                
+                <form id="check-order-form" class="check-order-form">
+                    <div class="form-group">
+                        <label for="transaction-id">ID Transaksi</label>
+                        <input type="text" id="transaction-id" name="transaction-id" placeholder="Contoh: RG12345ABCDE" required>
+                    </div>
+                    <button type="submit" class="btn-submit-order">
+                        <i class="fas fa-search"></i> Lacak Sekarang
+                    </button>
+                </form>
+
+                <div id="order-status-result" class="order-status-result" style="display: none;"> 
+                    <h3>Hasil Pencarian untuk ID: <span id="result-transaction-id-title"></span></h3>
+                    <div class="status-card">
+                        <p><strong>ID Transaksi:</strong> <span id="result-transaction-id"></span></p>
+                        <p><strong>Status:</strong> <span id="result-status" class="status-text"></span></p>
+                        <p><strong>Produk:</strong> <span id="result-product"></span></p>
+                        <p><strong>Tanggal Pesan:</strong> <span id="result-date"></span></p>
+                        <p><strong>Catatan:</strong> <span id="result-notes"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>RGstore</h4>
+                    <p>Top Up Games Favoritmu & Gunakan Jasa Joki Game di RGstore! Layanan CS 24JAM, Proses Otomatis, Aman, & Pastinya Terjangkau.</p>
+                     <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                 <div class="footer-col">
+                    <h4>Halaman</h4>
+                    <ul>
+                        <li><a href="index.html">Halaman Utama</a></li>
+                        <li><a href="cek_pesanan.html">Cek Pesanan</a></li>
+                        <li><a href="#">Daftar Harga</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>Informasi</h4>
+                    <ul>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Privacy & Policy</a></li>
+                        <li><a href="#">Kontak Kami</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>Metode Pembayaran</h4>
+                    <div class="payment-icons">
+                        <img src="images/visa.png" alt="Visa">
+                        <img src="images/ovo.png" alt="OVO">
+                        <img src="images/gopay.png" alt="GoPay">
+                        <img src="images/dana.png" alt="Dana">
+                        <img src="images/bca.png" alt="BCA">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 RG store. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const checkOrderForm = document.getElementById('check-order-form');
+        const orderStatusResultDiv = document.getElementById('order-status-result');
+        const resultTransactionIdTitleSpan = document.getElementById('result-transaction-id-title');
+        const resultTransactionIdSpan = document.getElementById('result-transaction-id'); 
+        const resultStatusSpan = document.getElementById('result-status');
+        const resultProductSpan = document.getElementById('result-product');
+        const resultDateSpan = document.getElementById('result-date');
+        const resultNotesSpan = document.getElementById('result-notes');
+
+        if (checkOrderForm) {
+            checkOrderForm.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                
+                const transactionIdInput = document.getElementById('transaction-id').value;
+                const transactionIdToSearch = transactionIdInput.trim().toLowerCase();
+
+                let displayData = {
+                    found: false,
+                    transactionId: transactionIdInput,
+                    status: 'Tidak Ditemukan',
+                    product: '-',
+                    date: '-',
+                    notes: 'ID Transaksi tidak ditemukan. Pastikan ID yang Anda masukkan benar dan tidak ada spasi.'
+                };
+
+                const allOrders = JSON.parse(localStorage.getItem('rgStoreOrders')) || {};
+                let foundOrder = allOrders[transactionIdToSearch];
+
+                if (foundOrder) { 
+                    displayData = {
+                        found: true,
+                        transactionId: foundOrder.transactionId,
+                        status: foundOrder.status,
+                        product: foundOrder.product,
+                        date: foundOrder.date,
+                        notes: foundOrder.notes
+                    };
+                } else {
+                    // Contoh data statis jika tidak ditemukan di localStorage (opsional, bisa dihapus jika hanya mengandalkan localStorage)
+                    if (transactionIdToSearch === 'rg123') { 
+                        displayData = { found: true, transactionId: 'RG123', status: 'Selesai', product: '500 Diamonds - Contoh Statis', date: '20 Mei 2025', notes: 'Pesanan statis contoh.'};
+                    } else if (transactionIdToSearch === 'rg456') { 
+                        displayData = { found: true, transactionId: 'RG456', status: 'Sedang Diproses', product: '1000 UC - Contoh Statis', date: '21 Mei 2025', notes: 'Pesanan statis contoh, sedang diproses.'};
+                    } else if (transactionIdToSearch === 'rg888') { 
+                        displayData = { found: true, transactionId: 'RG888', status: 'Berhasil', product: '1 Bulan Premium - Contoh Statis', date: '22 Mei 2025', notes: 'Pembayaran berhasil, contoh statis.'};
+                    }
+                }
+
+                if (resultTransactionIdTitleSpan) resultTransactionIdTitleSpan.textContent = transactionIdInput;
+
+                if (resultTransactionIdSpan) resultTransactionIdSpan.textContent = displayData.transactionId;
+                if (resultStatusSpan) resultStatusSpan.textContent = displayData.status;
+                if (resultProductSpan) resultProductSpan.textContent = displayData.product;
+                if (resultDateSpan) resultDateSpan.textContent = displayData.date;
+                if (resultNotesSpan) resultNotesSpan.textContent = displayData.notes;
+
+                if (resultStatusSpan) {
+                    resultStatusSpan.className = 'status-text'; 
+                    if (displayData.status.toLowerCase() === 'selesai' || displayData.status.toLowerCase() === 'berhasil') {
+                        resultStatusSpan.classList.add('status-completed');
+                    } else if (displayData.status.toLowerCase() === 'sedang diproses' || displayData.status.toLowerCase() === 'menunggu pembayaran') {
+                        resultStatusSpan.classList.add('status-processing');
+                    } else if (displayData.status.toLowerCase() === 'gagal' || displayData.status.toLowerCase() === 'dibatalkan') {
+                        resultStatusSpan.classList.add('status-failed');
+                    } else { 
+                         resultStatusSpan.classList.add('status-failed'); // Untuk "Tidak Ditemukan"
+                    }
+                }
+                
+                if (orderStatusResultDiv) orderStatusResultDiv.style.display = 'block';
+            });
+        }
+
+        // Script untuk mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('header nav');
+
+        if (mobileMenuToggle && nav) {
+            mobileMenuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active'); 
+            });
+        }
+    </script>
+
+</body>
+</html>
