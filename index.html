@@ -12,14 +12,14 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h1>RG<span class="highlight">store</span></h1>
+                <h1><a href="index.html" style="color: #fff; text-decoration: none;">RG<span class="highlight">store</span></a></h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" class="active">Beranda</a></li>
+                    <li><a href="index.html" class="active">Beranda</a></li>
                     <li><a href="#games">Games</a></li>
                     <li><a href="#">Voucher</a></li>
-                    <li><a href="#">Cek Pesanan</a></li>
+                    <li><a href="cek_pesanan.html">Cek Pesanan</a></li>
                     <li><a href="#" class="btn-login">Login</a></li>
                 </ul>
             </nav>
@@ -29,7 +29,7 @@
 
     <section class="hero">
         <div class="container">
-            <img src="banner.jpg" alt="Banner Promo" class="hero-banner">
+            <img src="images/banner.jpg" alt="Banner Promo RG Store" class="hero-banner">
         </div>
     </section>
 
@@ -40,7 +40,7 @@
                 
                 <div class="game-card">
                     <div class="discount-badge">-15%</div>
-                    <img src="ml.png" alt="Mobile Legends"> 
+                    <img src="images/ml.png" alt="Mobile Legends"> 
                     <h3>Mobile Legends</h3>
                     <p>Mulai dari Rp 5.000</p>
                     <button class="btn-topup">Top Up</button>
@@ -48,54 +48,117 @@
 
                 <div class="game-card">
                     <div class="discount-badge">-10%</div>
-                    <img src="ff.png" alt="Free Fire">
+                    <img src="images/ff.png" alt="Free Fire">
                     <h3>Free Fire</h3>
                     <p>Mulai dari Rp 10.000</p>
                     <button class="btn-topup">Top Up</button>
                 </div>
 
                 <div class="game-card">
-                    <img src="pubg.png" alt="PUBG Mobile">
+                    <img src="images/pubg.png" alt="PUBG Mobile">
                     <h3>PUBG Mobile</h3>
                     <p>Mulai dari Rp 15.000</p>
                     <button class="btn-topup">Top Up</button>
                 </div>
 
                 <div class="game-card">
-                    <img src="genshin.png" alt="Genshin Impact">
+                    <img src="images/genshin.png" alt="Genshin Impact">
                     <h3>Genshin Impact</h3>
                     <p>Mulai dari Rp 25.000</p>
                     <button class="btn-topup">Top Up</button>
                 </div>
 
                 <div class="game-card">
-                    <img src="deltaforce.jpg" alt="Delta Force">
+                    <img src="images/deltaforce.jpg" alt="Delta Force">
                     <h3>Delta Force</h3>
                     <p>Mulai dari Rp 20.000</p>
                     <button class="btn-topup">Top Up</button>
                 </div>
 
                 <div class="game-card">
-                    <img src="minecraft.png" alt="Minecraft">
+                    <img src="images/minecraft.png" alt="Minecraft">
                     <h3>Minecraft</h3>
                     <p>Mulai dari Rp 20.000</p>
                     <button class="btn-topup">Top Up</button>
                 </div>
 
                 <div class="game-card">
-                    <img src="hok.png" alt="Honor of Kings">
+                    <img src="images/hok.png" alt="Honor of Kings">
                     <h3>Honor of Kings</h3>
                     <p>Mulai dari Rp 10.000</p>
                     <button class="btn-topup">Top Up</button>
                 </div>
 
                 <div class="game-card">
-                    <img src="steam.png" alt="Steam Wallet">
+                    <img src="images/steam.png" alt="Steam Wallet">
                     <h3>Steam Wallet</h3>
                     <p>Mulai dari Rp 12.000</p>
                     <button class="btn-topup">Top Up</button>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <section id="topup-process" class="topup-section"> <div class="container">
+            <h2><i class="fas fa-shopping-cart"></i> Detail Pesanan</h2>
+            <form id="topup-form-actual" class="topup-form"> 
+                
+                <div class="form-step">
+                    <h3>1. Masukkan User ID</h3>
+                    <div class="form-group">
+                        <label for="user-id">User ID</label>
+                        <input type="text" id="user-id" name="user-id" placeholder="Masukkan User ID Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="zone-id">Zone ID (Opsional)</label>
+                        <input type="text" id="zone-id" name="zone-id" placeholder="Contoh: 1234">
+                    </div>
+                    <p class="form-hint">Untuk menemukan User ID Anda, buka profil game Anda.</p>
+                </div>
+
+                <div class="form-step">
+                    <h3>2. Pilih Nominal</h3>
+                    <div class="nominal-list">
+                        <button type="button" class="btn-nominal" data-nominal-id="nominal1">100 Diamonds <br><span>Rp 15.000</span></button>
+                        <button type="button" class="btn-nominal" data-nominal-id="nominal2">250 Diamonds <br><span>Rp 35.000</span></button>
+                        <button type="button" class="btn-nominal" data-nominal-id="nominal3">500 Diamonds <br><span>Rp 70.000</span></button>
+                        <button type="button" class="btn-nominal" data-nominal-id="nominal4">1000 Diamonds <br><span>Rp 140.000</span></button>
+                        <button type="button" class="btn-nominal" data-nominal-id="nominal5">2000 Diamonds <br><span>Rp 280.000</span></button>
+                        <button type="button" class="btn-nominal" data-nominal-id="nominal6">5000 Diamonds <br><span>Rp 700.000</span></button>
+                    </div>
+                </div>
+
+                <div class="form-step">
+                    <h3>3. Pilih Metode Pembayaran</h3>
+                    <div class="payment-list">
+                         <button type="button" class="btn-payment"><img src="images/ovo.png" alt="OVO"> OVO</button>
+                         <button type="button" class="btn-payment"><img src="images/gopay.png" alt="GoPay"> GoPay</button>
+                         <button type="button" class="btn-payment"><img src="images/dana.png" alt="Dana"> Dana</button>
+                         <button type="button" class="btn-payment"><i class="fas fa-university"></i> Bank Transfer</button>
+                         <button type="button" class="btn-payment"><i class="fas fa-qrcode"></i> QRIS</button>
+                         <button type="button" class="btn-payment"><i class="fas fa-store"></i> Minimarket</button>
+                    </div>
+                </div>
+
+                <div class="form-step">
+                    <h3>4. Beli!</h3>
+                    <div class="form-group">
+                        <label for="email">Email (Untuk Bukti Pembayaran)</label>
+                        <input type="email" id="email" name="email" placeholder="email@Anda.com" required>
+                    </div>
+                    <button type="submit" class="btn-submit-order">
+                        <i class="fas fa-rocket"></i> Beli Sekarang & Proses Cepat!
+                    </button>
+                </div>
+            </form>
+
+            <div id="order-confirmation" style="display: none; margin-top: 30px; padding: 20px; background-color: var(--bg-dark-3); border-radius: 8px; text-align: center; border: 1px solid var(--accent-green, #28a745);">
+                <h3 style="color: var(--accent-green, #28a745);"><i class="fas fa-check-circle"></i> Konfirmasi Pesanan</h3>
+                <p>Terima kasih telah melakukan pemesanan.</p>
+                <p>ID Transaksi Anda: <strong id="generated-transaction-id" style="color: var(--accent-blue); font-size: 1.2em;"></strong></p>
+                <p>Silakan simpan ID Transaksi ini untuk melacak pesanan Anda.</p>
+                <button type="button" id="close-confirmation" style="margin-top: 15px; padding: 10px 20px; background-color: var(--accent-blue); color: var(--bg-dark-1); border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Tutup</button>
             </div>
         </div>
     </section>
@@ -116,8 +179,8 @@
                 <div class="footer-col">
                     <h4>Halaman</h4>
                     <ul>
-                        <li><a href="#">Halaman Utama</a></li>
-                        <li><a href="#">Cek Pesanan</a></li>
+                        <li><a href="index.html">Halaman Utama</a></li>
+                        <li><a href="cek_pesanan.html">Cek Pesanan</a></li>
                         <li><a href="#">Daftar Harga</a></li>
                         <li><a href="#">Blog</a></li>
                     </ul>
@@ -134,11 +197,11 @@
                 <div class="footer-col">
                     <h4>Metode Pembayaran</h4>
                     <div class="payment-icons">
-                        <img src="visa.png" alt="Visa">
-                        <img src="ovo.png" alt="OVO">
-                        <img src="gopay.png" alt="GoPay">
-                        <img src="dana.png" alt="Dana">
-                        <img src="bca.png" alt="BCA">
+                        <img src="images/visa.png" alt="Visa">
+                        <img src="images/ovo.png" alt="OVO">
+                        <img src="images/gopay.png" alt="GoPay">
+                        <img src="images/dana.png" alt="Dana">
+                        <img src="images/bca.png" alt="BCA">
                     </div>
                 </div>
             </div>
@@ -148,5 +211,181 @@
         </div>
     </footer>
 
+    <script>
+        // Script untuk menampilkan form top-up
+        const topUpButtons = document.querySelectorAll('.game-card .btn-topup');
+        const topUpSection = document.getElementById('topup-process');
+        const topUpFormActual = document.getElementById('topup-form-actual');
+        const orderConfirmationDiv = document.getElementById('order-confirmation');
+        const generatedTransactionIdSpan = document.getElementById('generated-transaction-id');
+        const closeConfirmationButton = document.getElementById('close-confirmation');
+
+
+        if (topUpButtons && topUpSection) {
+            topUpButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    const gameCard = this.closest('.game-card');
+                    if (gameCard) {
+                        const gameNameElement = gameCard.querySelector('h3');
+                        if (gameNameElement) {
+                           const gameName = gameNameElement.textContent;
+                           console.log('Game yang dipilih:', gameName); 
+                           const topUpTitle = topUpSection.querySelector('h2');
+                           if (topUpTitle) {
+                              topUpTitle.innerHTML = `<i class="fas fa-shopping-cart"></i> Detail Pesanan untuk ${gameName}`;
+                           }
+                        }
+                    }
+                    if (topUpSection) topUpSection.style.display = 'block'; 
+                    if (orderConfirmationDiv) orderConfirmationDiv.style.display = 'none'; 
+                    if (topUpSection) topUpSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        }
+
+        // Script untuk tombol nominal
+        const nominalButtons = document.querySelectorAll('.nominal-list .btn-nominal');
+        let selectedNominal = null; 
+
+        if (nominalButtons) { 
+            nominalButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    nominalButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    selectedNominal = {
+                        id: this.dataset.nominalId, 
+                        text: this.innerText 
+                    };
+                    console.log('Nominal dipilih:', selectedNominal);
+                });
+            });
+        }
+
+        // Script untuk tombol pembayaran
+        const paymentButtons = document.querySelectorAll('.payment-list .btn-payment');
+        let selectedPayment = null;
+
+        if (paymentButtons) { 
+            paymentButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    paymentButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    selectedPayment = this.innerText.trim();
+                    console.log('Metode Pembayaran dipilih:', selectedPayment);
+                });
+            });
+        }
+        
+        // Script untuk mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('header nav');
+
+        if (mobileMenuToggle && nav) {
+            mobileMenuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active'); 
+            });
+        }
+
+        // Script untuk simulasi submit form & ID Transaksi
+        if (topUpFormActual) {
+            topUpFormActual.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+
+                const userId = document.getElementById('user-id').value;
+                const email = document.getElementById('email').value;
+                const zoneIdValue = document.getElementById('zone-id').value;
+                
+                if (!userId || !email || !selectedNominal || !selectedPayment) {
+                    alert('Mohon lengkapi semua data dan pilihan (User ID, Email, Nominal, Metode Pembayaran)!');
+                    return;
+                }
+
+                console.log('Data Pesanan (Simulasi):');
+                console.log('User ID:', userId);
+                console.log('Zone ID:', zoneIdValue);
+                console.log('Nominal:', selectedNominal);
+                console.log('Pembayaran:', selectedPayment);
+                console.log('Email:', email);
+
+                const randomSuffix = Math.random().toString(36).substring(2, 8).toUpperCase();
+                const generatedId = `RG${new Date().getTime().toString().slice(-5)}${randomSuffix}`;
+                
+                if (generatedTransactionIdSpan) generatedTransactionIdSpan.textContent = generatedId;
+                
+                let confirmationStatusElement = document.getElementById('confirmation-status');
+                if (!confirmationStatusElement && orderConfirmationDiv) { // Pastikan orderConfirmationDiv ada
+                    const statusContainer = orderConfirmationDiv.querySelector('p:nth-of-type(2)'); // Paragraf "ID Transaksi Anda:"
+                    if (statusContainer) {
+                        confirmationStatusElement = document.createElement('p');
+                        confirmationStatusElement.id = 'confirmation-status'; // Beri ID agar bisa ditemukan lagi
+                        confirmationStatusElement.innerHTML = 'Status: <strong id="confirmation-status-text" class="status-text status-processing">Sedang Diproses...</strong>';
+                        statusContainer.parentNode.insertBefore(confirmationStatusElement, statusContainer);
+                    }
+                } else if (confirmationStatusElement) {
+                    const statusTextElement = document.getElementById('confirmation-status-text');
+                    if (statusTextElement) {
+                        statusTextElement.textContent = 'Sedang Diproses...';
+                        statusTextElement.className = 'status-text status-processing';
+                    }
+                }
+                
+                if (orderConfirmationDiv) orderConfirmationDiv.style.display = 'block';
+                if (orderConfirmationDiv) orderConfirmationDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                const orderData = {
+                    transactionId: generatedId,
+                    userId: userId, 
+                    zoneId: zoneIdValue,
+                    status: 'Sedang Diproses',
+                    product: selectedNominal ? selectedNominal.text.split('\n')[0] : 'Produk Tidak Dipilih',
+                    date: new Date().toLocaleString('id-ID'),
+                    notes: 'Pesanan Anda telah kami terima dan sedang diproses.'
+                };
+
+                let allOrders = JSON.parse(localStorage.getItem('rgStoreOrders')) || {};
+                allOrders[generatedId.toLowerCase()] = orderData;
+                localStorage.setItem('rgStoreOrders', JSON.stringify(allOrders));
+                console.log('Pesanan disimpan (awal):', orderData);
+
+                topUpFormActual.reset(); 
+                if (nominalButtons) nominalButtons.forEach(btn => btn.classList.remove('active')); 
+                if (paymentButtons) paymentButtons.forEach(btn => btn.classList.remove('active'));
+                selectedNominal = null;
+                selectedPayment = null;
+
+                setTimeout(function() {
+                    const statusTextElement = document.getElementById('confirmation-status-text');
+                    if (statusTextElement) {
+                        statusTextElement.textContent = 'Berhasil!';
+                        statusTextElement.className = 'status-text status-completed';
+                    }
+                    
+                    const firstP = document.querySelector('#order-confirmation p:nth-child(2)'); 
+                    if(firstP && firstP.id !== 'confirmation-status') { // Pastikan bukan elemen status itu sendiri
+                        firstP.textContent = "Pesanan Anda telah berhasil diproses!";
+                    }
+
+
+                    if (allOrders[generatedId.toLowerCase()]) {
+                        allOrders[generatedId.toLowerCase()].status = 'Berhasil'; 
+                        allOrders[generatedId.toLowerCase()].notes = 'Pesanan telah berhasil diproses dan item sudah dikirim!';
+                        localStorage.setItem('rgStoreOrders', JSON.stringify(allOrders));
+                        console.log('Status pesanan diupdate di localStorage untuk ID:', generatedId);
+                    }
+                }, 4000); 
+            });
+        }
+
+        if (closeConfirmationButton) {
+            closeConfirmationButton.addEventListener('click', function() {
+                if (orderConfirmationDiv) orderConfirmationDiv.style.display = 'none';
+                const gamesSection = document.getElementById('games');
+                if(gamesSection) {
+                    gamesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
