@@ -609,24 +609,42 @@ footer {
 
 /* Responsiveness */
 @media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Header Mobile */
+    header {
+        padding: 12px 0;
+    }
+
     header .container {
-        flex-direction: row; 
+        flex-direction: row;
         justify-content: space-between;
     }
+
+    header .logo h1 {
+        font-size: 1.5em;
+    }
+
     header nav {
         position: absolute;
-        top: 100%; 
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--bg-dark-2);
         flex-direction: column;
-        align-items: stretch; 
-        display: none; 
+        align-items: stretch;
+        display: none;
         box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         border-top: 1px solid var(--border-color);
     }
 
-    header nav.active { 
+    header nav.active {
         display: flex;
     }
 
@@ -647,29 +665,274 @@ footer {
 
     header nav ul li a {
         padding: 15px;
-        display: block; 
+        display: block;
         width: 100%;
+        font-size: 0.95em;
     }
 
     .mobile-menu-toggle {
         display: block;
     }
-    .game-list, 
+
+    /* Hero Mobile */
+    .hero {
+        padding: 10px 0;
+    }
+
+    .hero-banner {
+        height: 200px;
+        border-radius: 8px;
+    }
+
+    /* Headings Mobile */
+    h2 {
+        font-size: 1.5em;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+    }
+
+    h2 i {
+        display: block;
+        margin-bottom: 8px;
+        margin-right: 0;
+    }
+
+    /* Game Section Mobile */
+    .game-section {
+        padding: 30px 0;
+    }
+
+    .game-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .game-card {
+        padding-bottom: 12px;
+    }
+
+    .game-card img {
+        height: 140px;
+    }
+
+    .game-card h3 {
+        font-size: 0.95em;
+        margin: 10px 8px 5px 8px;
+    }
+
+    .game-card p {
+        font-size: 0.8em;
+        margin: 0 8px 10px 8px;
+    }
+
+    .game-card .discount-badge {
+        padding: 4px 8px;
+        font-size: 0.7em;
+    }
+
+    .btn-topup {
+        padding: 8px 15px;
+        font-size: 0.85em;
+        margin: 0 10px;
+    }
+
+    /* Top Up Form Mobile */
+    .topup-section {
+        padding: 30px 0;
+    }
+
+    .topup-form {
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    .form-step {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+
+    .form-step h3 {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 1em;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+
     .nominal-list,
     .payment-list {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
-     .footer-grid {
+
+    .btn-nominal,
+    .btn-payment {
+        padding: 12px 8px;
+        font-size: 0.85em;
+    }
+
+    .btn-nominal span {
+        font-size: 0.85em;
+    }
+
+    .btn-payment img,
+    .btn-payment i {
+        height: 14px;
+        margin-right: 5px;
+    }
+
+    .btn-submit-order {
+        padding: 15px;
+        font-size: 1.1em;
+    }
+
+    /* Order Confirmation Mobile */
+    #order-confirmation {
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    #order-confirmation h3 {
+        font-size: 1.2em;
+    }
+
+    #order-confirmation p {
+        font-size: 0.9em;
+    }
+
+    #generated-transaction-id {
+        font-size: 1em !important;
+    }
+
+    /* Check Order Page Mobile */
+    .order-status-section {
+        padding: 30px 0;
+    }
+
+    .section-subtitle {
+        font-size: 0.95em;
+        margin-top: -20px;
+        margin-bottom: 25px;
+        padding: 0 10px;
+    }
+
+    .check-order-form {
+        padding: 20px 15px;
+    }
+
+    .order-status-result {
+        padding: 20px 15px;
+        margin-top: 25px;
+    }
+
+    .order-status-result h3 {
+        font-size: 1.2em;
+    }
+
+    .status-card {
+        padding: 15px;
+    }
+
+    .status-card p {
+        font-size: 0.95em;
+        margin-bottom: 10px;
+    }
+
+    .status-card p strong {
+        display: block;
+        margin-bottom: 3px;
+        min-width: auto;
+    }
+
+    /* Footer Mobile */
+    footer {
+        padding: 30px 0 15px 0;
+        margin-top: 30px;
+    }
+
+    .footer-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
         text-align: center;
     }
-     .social-icons, .payment-icons {
+
+    .footer-col h4 {
+        font-size: 1.1em;
+        margin-bottom: 12px;
+    }
+
+    .footer-col p {
+        font-size: 0.85em;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 8px;
+    }
+
+    .social-icons,
+    .payment-icons {
         justify-content: center;
         display: flex;
         flex-wrap: wrap;
-     }
-    .topup-form {
-        padding: 20px;
+    }
+
+    .social-icons a {
+        font-size: 1.4em;
+        margin: 0 10px;
+    }
+
+    .payment-icons img {
+        width: 40px;
+        margin: 5px;
+    }
+
+    .footer-bottom {
+        font-size: 0.8em;
+        padding-top: 15px;
+    }
+}
+
+/* Extra Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+    .game-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .game-card img {
+        height: 120px;
+    }
+
+    .game-card h3 {
+        font-size: 0.9em;
+    }
+
+    .game-card p {
+        font-size: 0.75em;
+    }
+
+    .nominal-list,
+    .payment-list {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    .btn-submit-order {
+        font-size: 1em;
+        padding: 12px;
     }
 }
